@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+	<ui:composition template="/zenlike/template.xhtml">
+	
+	<ui:define name="TituloDaPagina">Agenda de consultas</ui:define>
+
+	<ui:define name="conteudo">
+		<p:dataTable value="#{pacienteBean.listarPaciente()}" var="paciente">
+		
+			<p:column headerText="Nome Completo">
+				<h:outputText value="#{paciente.nome}"/>
+			</p:column>
+			
+			<p:column headerText="Idade">
+				<h:outputText value="#{paciente.idade}"/>
+			</p:column>
+			
+			<p:column headerText="CPF">
+				<h:outputText value="#{paciente.cpf}"/>
+			</p:column>
+			
+			<p:column headerText="Sexo">
+				<h:outputText value="#{paciente.sexo}"/>
+			</p:column>
+			
+			<p:column headerText="Data da Internação">
+				<h:outputText value="#{paciente.dataInternacao}"/>
+			</p:column>
+			
+			<p:column headerText="Ação">
+				<p:commandButton value="Excluir" action="#{pacienteBean.excluirPacientes(paciente)}" update="@form"/>
+			</p:column>
+		
+		</p:dataTable>
+
+	</ui:define>
+	
+	</ui:composition>
+</html>

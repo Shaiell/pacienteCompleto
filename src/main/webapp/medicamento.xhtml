@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+	<ui:composition template="/zenlike/template.xhtml">
+	
+	<ui:define name="TituloDaPagina"> Cadastro de Medicamento</ui:define>
+	<ui:define name="botoesAcao">
+		<p:commandButton value="Salvar" action="#{medicamentoBean.cadastrarMedicamento()}" update="@form" />
+	</ui:define>
+	
+	<ui:define name="conteudo">
+	
+		<h:panelGrid columns="3">
+		
+			<p:outputLabel for="n1" value="Nome do medicamento: "/>
+			<p:inputText id="n1" value="#{medicamentoBean.medicamento.nome}"/>
+			<p:message for="n1"/>
+		
+			<p:outputLabel for="n2" value="Concentração: "/>
+			<p:inputText id="n2" value="#{medicamentoBean.medicamento.concentracao}"/>
+			<p:message for="n2"/>
+			
+			<p:outputLabel for="n3" value="Laboratorio: "/>
+			<p:inputText id="n3" value="#{medicamentoBean.medicamento.laboratorio}"/>
+			<p:message for="n3"/>
+			
+			<p:outputLabel for="n4" value="Tarja"/>
+			<p:selectOneMenu id="n4" value="#{medicamentoBean.medicamento.tarja}">
+				<f:selectItem itemLabel="--Selecionar--" noSelectionOption="true"/>
+				<f:selectItem itemLabel="Amarela" itemValue="Amarela"/>
+				<f:selectItem itemLabel="Vermelha" itemValue="Vermelha"/>
+				<f:selectItem itemLabel="Preta" itemValue="Preta"/>
+				<f:selectItem itemLabel="Não Tarjado" itemValue="Não Tarjado"/>
+			</p:selectOneMenu>
+			<p:message for="n4"/>
+		
+		</h:panelGrid>
+	
+	</ui:define>
+	
+	</ui:composition>
+</html>

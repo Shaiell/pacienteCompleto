@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+	<ui:composition template="/zenlike/template.xhtml">
+	
+		<ui:define name="TituloDaPagina">Lista de Medicamentos</ui:define>
+		<ui:define name="conteudo">
+		
+			<p:dataTable value="#{medicamentoBean.listarMedicamento()}" var="medicamento">
+			
+				<p:column headerText="Nome do medicamento">
+					<h:outputText value="#{medicamento.nome}" />
+				</p:column>
+				
+				<p:column headerText="Concentração">
+					<h:outputText value="#{medicamento.concentracao}" />
+				</p:column>
+				
+				<p:column headerText="Laboratorio">
+					<h:outputText value="#{medicamento.laboratorio}" />
+				</p:column>
+				
+				<p:column headerText="Tarja">
+					<h:outputText value="#{medicamento.tarja}" />
+				</p:column>
+			
+			</p:dataTable>
+		
+		</ui:define>
+		
+	</ui:composition>
+</html>

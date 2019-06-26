@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+       xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:p="http://primefaces.org/ui">
+
+	<ui:composition template="/zenlike/template.xhtml">
+	
+	<ui:define name="TituloDaPagina">Agenda de prescrições</ui:define>
+
+	<ui:define name="conteudo">
+		
+		<p:dataTable value="#{prescricaoBean.listarPrescricao()}" var="ps">
+		
+			<p:column headerText="Paciente">
+				<h:outputText value="#{ps.paciente.nome}"/>
+			</p:column>
+			
+			<p:column headerText="Medicamento">
+				<h:outputText value="#{ps.medicamento.nome}"/>
+			</p:column>
+			
+			<p:column headerText="Data de Inicio">
+				<h:outputText value="#{ps.dataInicio}"/>
+			</p:column>
+			
+			<p:column headerText="Data de Termino">
+				<h:outputText value="#{ps.dataFinal}"/>
+			</p:column>
+			
+			<p:column headerText="Frequencia">
+				<h:outputText value="#{ps.frequencia}"/>
+			</p:column>
+			
+
+		
+		</p:dataTable>
+
+	</ui:define>
+	
+	</ui:composition>
+</html>
